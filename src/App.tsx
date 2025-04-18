@@ -1,12 +1,18 @@
 import React from 'react';
-import {Button} from './compnents/Typography/Button';
+import Heading from './compnents/Typography/Heading/Heading.js';
+import Paragraph from './compnents/Typography/Paragraph/Paragraph.js';
+import TextInput from './compnents/DataEntry/TextInput/TextInput.js';
+import Toast from './compnents/Feedback/Toast/Toast.js';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <Button variant="primary">Click Me</Button>
+    <div>
+      <Heading level={1}>Welcome to Uzence Design System</Heading>
+      <Paragraph>This is a simple paragraph to demonstrate the Typography component.</Paragraph>
+      <TextInput placeholder="Enter your name" />
+      <Toast message="This is a Toast message!" />
     </div>
   );
-}
+};
 
 export default App;
