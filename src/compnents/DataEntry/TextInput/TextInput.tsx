@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
 
-interface TextInputProps {
+export interface TextInputProps {
   placeholder: string;
+  value?: string;
+  disabled?: boolean;
+  errorMessage?: string;
 }
 
-const TextInput: React.FC<TextInputProps> = ({ placeholder }) => {
-  const [value, setValue] = useState('');
+const TextInput: React.FC<TextInputProps> = ({ placeholder, value = '', disabled, errorMessage }) => {
+  const [inputValue, setInputValue] = useState(value);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setInputValue(e.target.value);
   };
 
-  return <input type="text" value={value} onChange={handleChange} placeholder={placeholder} />;
+  return (
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+        placeholder={placeholder}
+        disabled={disabled}
+        className={`border px-3 py-2 rounded ${errorMessage ? 'border-red-500' : 'border-gray-300'}`}
+      />
+      {errorMessage && <p className="text-red-500 text-sm mt-1">{errorMessage}</p>}
+    </div>
+  );
 };
 
 export default TextInput;

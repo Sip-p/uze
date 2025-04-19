@@ -17,49 +17,36 @@ const meta: Meta<typeof Paragraph> = {
 
 export default meta;
 
-const Template: StoryFn<{ children: React.ReactNode; style?: React.CSSProperties }> = (args) => (
+const Template: StoryFn<{ children: React.ReactNode; className?: string }> = (args) => (
   <Paragraph {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
   children: 'This is a paragraph.',
-  style: {},  // No additional styling
+  className: '', // No extra classes
 };
 
 export const Large = Template.bind({});
 Large.args = {
   children: 'This is a large paragraph.',
-  style: {
-    fontSize: '1.25rem',   // 2xl in Tailwind
-    lineHeight: '1.75rem',  // loose in Tailwind
-  },
+  className: 'text-2xl leading-loose',
 };
 
 export const Small = Template.bind({});
 Small.args = {
   children: 'This is a small paragraph.',
-  style: {
-    fontSize: '0.875rem',   // sm in Tailwind
-    lineHeight: '1.25rem',  // snug in Tailwind
-  },
+  className: 'text-sm leading-snug',
 };
 
 export const Styled = Template.bind({});
 Styled.args = {
   children: 'This is a styled paragraph with custom color.',
-  style: {
-    color: 'blue',      // text-blue-500 in Tailwind
-    fontWeight: 'bold', // font-bold in Tailwind
-  },
+  className: 'text-blue-500 font-bold',
 };
 
 export const Background = Template.bind({});
 Background.args = {
   children: 'This paragraph has a background color.',
-  style: {
-    backgroundColor: '#FEE2E2', // bg-red-100 in Tailwind
-    padding: '1rem',            // p-4 in Tailwind
-    borderRadius: '0.375rem',   // rounded-md in Tailwind
-  },
+  className: 'bg-red-100 p-4 rounded-md',
 };

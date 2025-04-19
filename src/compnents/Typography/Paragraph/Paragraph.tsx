@@ -2,11 +2,11 @@ import React from 'react';
 
 interface ParagraphProps {
   children: React.ReactNode;
-  style?: React.CSSProperties; // Accept inline styles as a prop
+  className?: string; // Use Tailwind classes instead of inline styles
 }
 
-const Paragraph: React.FC<ParagraphProps> = ({ children, style }) => {
-  return <p style={style}>{children}</p>; // Apply inline styles
+const Paragraph: React.FC<ParagraphProps> = ({ children, className = '' }) => {
+  return <p className={className}>{children}</p>;
 };
 
 export default Paragraph;
