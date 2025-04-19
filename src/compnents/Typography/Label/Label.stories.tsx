@@ -1,6 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import Label from './Label.js';
-import { Meta, StoryFn } from '@storybook/react';
 
 const meta: Meta<typeof Label> = {
   title: 'Typography/Label',
@@ -9,46 +9,98 @@ const meta: Meta<typeof Label> = {
   parameters: {
     docs: {
       description: {
-        component: 'Label is a component used to define the title or description for form controls or other interactive UI elements.'
+        component: `
+**Label** is a component used to define the title or description for form controls or other interactive UI elements.
+
+---
+
+### 🧩 Anatomy / Structure
+\`\`\`tsx
+<Label style={...} htmlFor="input-id">
+  {children}
+</Label>
+\`\`\`
+- Renders a native \`<label>\` HTML tag.
+- Accepts \`children\` to show the label text.
+- Supports optional \`style\` prop and \`htmlFor\` for accessibility.
+
+---
+
+### ♿ Accessibility Notes
+- Use the \`htmlFor\` prop to associate the label with a form control.
+- This improves usability for screen readers and form navigation.
+
+**Example**:
+\`\`\`tsx
+<Label htmlFor="email">Email Address</Label>
+<input id="email" type="email" />
+\`\`\`
+
+---
+
+### 🎨 Theming / Responsiveness
+- Style using \`style\` prop or external CSS.
+- Responsive sizing through custom font sizes.
+
+---
+
+### ✅ Do’s
+- ✅ Use with form inputs.
+- ✅ Keep label text concise and clear.
+- ✅ Link label and input using \`htmlFor\`.
+
+### 🚫 Don’ts
+- ❌ Don’t use labels for decoration.
+- ❌ Don’t skip linking labels to inputs in forms.
+        `,
       },
     },
   },
 };
 
 export default meta;
+type Story = StoryObj<typeof Label>;
 
-const Template: StoryFn<React.ComponentProps<typeof Label>> = (args) => <Label {...args} />;
-
-// Default Label
-export const Default = Template.bind({});
-Default.args = {
-  children: 'This is a label',
+export const Default: Story = {
+  args: {
+    children: 'This is a label',
+  },
 };
 
-// Small Label
-export const Small = Template.bind({});
-Small.args = {
-  children: 'This is a small label',
-  style: { fontSize: '12px' }, // Adjust font size for small label
+export const Small: Story = {
+  args: {
+    children: 'This is a small label',
+    style: { fontSize: '12px' },
+  },
 };
 
-// Large Label
-export const Large = Template.bind({});
-Large.args = {
-  children: 'This is a large label',
-  style: { fontSize: '20px' }, // Adjust font size for large label
+export const Large: Story = {
+  args: {
+    children: 'This is a large label',
+    style: { fontSize: '20px' },
+    htmlFor: ""
+  },
 };
 
-// Error Label
-export const Error = Template.bind({});
-Error.args = {
-  children: 'This is an error label',
-  style: { color: 'red' }, // Color for error state
+export const Error: Story = {
+  args: {
+    children: 'This is an error label',
+    style: { color: 'red' },
+  },
 };
 
-// Success Label
-export const Success = Template.bind({});
-Success.args = {
-  children: 'This is a success label',
-  style: { color: 'green' }, // Color for success state
+export const Success: Story = {
+  args: {
+    children: 'This is a success label',
+    style: { color: 'green' },
+  },
+};
+
+export const WithInput: Story = {
+  render: () => (
+    <div>
+      <Label htmlFor="username">Username</Label>
+      <input id="username" type="text" />
+    </div>
+  ),
 };

@@ -8,7 +8,67 @@ const meta: Meta<typeof TextInput> = {
   parameters: {
     docs: {
       description: {
-        component: 'TextInput is a simple and reusable input component for text entry.',
+        component: `
+### 🏷️ TextInput
+
+**TextInput** is a simple and reusable input component for text entry.
+
+---
+
+### 📚 Use Cases:
+- Collect text inputs like name, email, or other short text-based data.
+- Used in forms for user input.
+- Ideal for search fields or filter input.
+
+---
+
+### 🧠 Accessibility Notes:
+- Ensure input fields are properly labeled for screen readers using \`<label>\` elements.
+- \`aria-invalid\` is set to \`true\` if there's an error message.
+- \`aria-describedby\` associates the error message with the input field for better accessibility.
+
+---
+
+### 🎨 Theming & Responsiveness:
+- Fully customizable using Tailwind CSS or custom styles.
+- Responsive design supports different screen sizes.
+- Supports custom styling via the \`style\` prop.
+
+---
+
+### ✅ Do’s and Don’ts / Best Practices:
+| ✅ Do | ❌ Don’t |
+|------|---------|
+| Use for collecting text-based inputs | Don’t use for multi-line text (use Textarea for that) |
+| Make input accessible with proper labels | Don’t leave inputs without error handling or descriptions |
+| Ensure sufficient contrast for visibility | Don’t use input fields without proper error states or feedback |
+
+---
+
+### 📐 Anatomy / Structure:
+- The component consists of an \`<input>\` field for text input.
+- Displays an error message below the input when applicable.
+- Can be customized with various props like \`placeholder\`, \`value\`, \`disabled\`, and \`errorMessage\`.
+
+---
+
+### 🔄 Interaction Behavior:
+- The input supports interaction via typing text.
+- It dynamically updates the value as the user types.
+- The component displays an error message if the \`errorMessage\` prop is provided.
+
+---
+
+### 🧩 Props / API:
+| Prop         | Type           | Description                                  | Default   |
+|--------------|----------------|----------------------------------------------|-----------|
+| \`placeholder\` | \`string\`      | Placeholder text for the input field.        | \`''\`    |
+| \`value\`       | \`string\`      | The current value of the input.              | \`''\`    |
+| \`disabled\`    | \`boolean\`     | Whether the input is disabled or not.        | \`false\` |
+| \`errorMessage\`| \`string\`      | Error message to display below the input.    | \`undefined\` |
+
+---
+      `,
       },
     },
   },
@@ -45,7 +105,7 @@ export const Disabled: Story = {
 export const WithErrorMessage: Story = {
   args: {
     placeholder: 'Enter your name',
-    errorMessage: 'Name is required.',
+    errorMessage: "Name is required",
   },
 };
 

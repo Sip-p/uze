@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Caption from './Caption.js';
 
 const meta: Meta<typeof Caption> = {
@@ -9,32 +8,86 @@ const meta: Meta<typeof Caption> = {
   parameters: {
     docs: {
       description: {
-        component: 'Caption is a component used to provide a short description or title for visual elements such as images, videos, or other media.'
+        component: `
+### 🏷️ Caption
+
+The **Caption** component provides a brief description or title for visual content like images, charts, or videos.
+
+---
+
+### 📚 Use Cases:
+- Add a short description under an image.
+- Label a chart or table.
+- Provide supporting text for UI sections.
+
+---
+
+### 🧠 Accessibility Notes:
+- Use semantic tags (like \`<figcaption>\` or \`<p>\`) appropriately.
+- Ensure good contrast and legibility.
+- If used with media, ensure screen readers can associate the caption.
+
+---
+
+### 🎨 Theming & Responsiveness:
+- Supports custom inline styles via the \`style\` prop.
+- Easily adaptable using Tailwind or styled-components.
+
+---
+
+### ✅ Do’s and Don’ts:
+| ✅ Do | ❌ Don’t |
+|------|---------|
+| Use for descriptive or secondary text | Don’t use for long paragraphs |
+| Apply semantic tags for clarity | Don’t overload with styles |
+| Ensure sufficient color contrast | Don’t use low contrast text |
+
+`,
+      },
+    },
+  },
+  argTypes: {
+    children: {
+      description: 'The content to be displayed inside the caption.',
+      control: 'text',
+      table: {
+        type: { summary: 'ReactNode' },
+        defaultValue: { summary: 'undefined' },
+      },
+    },
+    style: {
+      description: 'Custom styles to be applied to the caption.',
+      control: 'object',
+      table: {
+        type: { summary: 'React.CSSProperties' },
+        defaultValue: { summary: '{}' },
       },
     },
   },
 };
 
 export default meta;
+type Story = StoryObj<typeof Caption>;
 
-const Template: StoryFn<React.ComponentProps<typeof Caption>> = (args) => <Caption {...args} />;
-
-// Default Caption
-export const Default = Template.bind({});
-Default.args = {
-  children: 'This is a caption',
+// Default state
+export const Default: Story = {
+  args: {
+    children: 'This is a caption',
+  },
 };
 
-// Caption with custom font size using inline styles
-export const LargeFontSize = Template.bind({});
-LargeFontSize.args = {
-  children: 'This caption has a larger font size.',
-  style: { fontSize: '24px' },  // Apply inline style here
+// Variant: Large Font
+export const LargeFontSize: Story = {
+  args: {
+    children: 'This caption has a larger font size.',
+    style: { fontSize: '24px' },
+  },
 };
 
-// Caption with a different color using inline styles
-export const ColoredCaption = Template.bind({});
-ColoredCaption.args = {
-  children: 'This caption has a color.',
-  style: { color: 'blue' },  // Apply inline color style here
+// Variant: Colored Caption
+export const ColoredCaption: Story = {
+  args: {
+    children: 'This caption has a color.',
+    style: { color: 'blue' },
+  },
 };

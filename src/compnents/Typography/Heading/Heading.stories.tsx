@@ -1,6 +1,5 @@
-// Heading.stories.tsx
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
 import Heading from './Heading.js';
 
 const meta: Meta<typeof Heading> = {
@@ -10,53 +9,89 @@ const meta: Meta<typeof Heading> = {
   parameters: {
     docs: {
       description: {
-        component: 'Heading is a component used to display titles or subtitles for sections of a page, providing structure and clarity for users.'
+        component: `
+### Heading Component
+
+The \`Heading\` component renders semantic headings (\`<h1>\` through \`<h6>\`) with predefined Tailwind styles.
+
+---
+
+### ✅ Props
+
+- \`level\` (**required**): A number between 1–6 that determines the heading tag and its style.
+- \`children\` (**required**): The content to render inside the heading.
+- \`className\` (optional): Custom Tailwind classes to override or extend styles.
+
+---
+
+### ✅ Use Cases
+
+- Display page titles and section headers.
+- Maintain semantic HTML for accessibility and SEO.
+- Keep design consistent across your application.
+
+---
+
+### ✅ Accessibility
+
+- Uses semantic tags (\`h1\`–\`h6\`) dynamically for screen readers.
+- Encourages proper heading hierarchy.
+
+---
+
+### ✅ Customization
+
+- Easily override styles using \`className\` prop.
+- Combine with theme-specific classes for branding.
+        `,
       },
     },
   },
 };
 
 export default meta;
-const Template: StoryFn<{ level: number; children: React.ReactNode }> = (args) => <Heading {...args} />;
 
-// Default Heading (level 1)
-export const Default = Template.bind({});
-Default.args = {
-  level: 1,
-  children: 'This is a Heading 1',
+type Story = StoryObj<typeof Heading>;
+
+export const Default: Story = {
+  args: {
+    level: 1,
+    children: 'This is a Heading 1',
+  },
 };
 
-// Heading level 2
-export const Level2 = Template.bind({});
-Level2.args = {
-  level: 2,
-  children: 'This is a Heading 2',
+export const Level2: Story = {
+  args: {
+    level: 2,
+    children: 'This is a Heading 2',
+  },
 };
 
-// Heading level 3
-export const Level3 = Template.bind({});
-Level3.args = {
-  level: 3,
-  children: 'This is a Heading 3',
+export const Level3: Story = {
+  args: {
+    level: 3,
+    children: "This is a Heading 4",
+    className: ""
+  },
 };
 
-// Heading level 4
-export const Level4 = Template.bind({});
-Level4.args = {
-  level: 4,
-  children: 'This is a Heading 4',
+export const Level4: Story = {
+  args: {
+    level: 4,
+    children: 'This is a Heading 4',
+  },
 };
 
-// Heading level 5
-export const Level5 = Template.bind({});
-Level5.args = {
-  level: 5,
-  children: 'This is a Heading 5',
+export const Level5: Story = {
+  args: {
+    level: 5,
+    children: 'This is a Heading 5',
+  },
 };
 
-// Heading level 6
-export const Level6 = Template.bind({});
-Level6.args = {
-  level: 6,
-  children: 'This is a Heading 6',
+export const Level6: Story = {
+  args: {
+    level: 6,
+    children: 'This is a Heading 6',
+  },
 };

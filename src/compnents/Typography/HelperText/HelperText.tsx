@@ -1,13 +1,12 @@
-// HelperText.tsx
 import React from 'react';
 
 interface HelperTextProps {
   children: React.ReactNode;
-  style?: React.CSSProperties;  // Allow 'style' prop for inline styling
+  className?: string; // Allow custom Tailwind classes
 }
 
-const HelperText: React.FC<HelperTextProps> = ({ children, style }) => {
-  return <span style={style}>{children}</span>;  // Apply inline style to the component
+const HelperText: React.FC<HelperTextProps> = ({ children, className }) => {
+  return <span className={className}>{children}</span>; // Apply custom className to the component
 };
 
 export default HelperText;
