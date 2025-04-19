@@ -1,48 +1,57 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import TextInput from './TextInput.js';
+import type { Meta, StoryObj } from '@storybook/react';
+import TextInput, {   } from './TextInput.js';
 
-export default {
+const meta: Meta<typeof TextInput> = {
   title: 'DataEntry/TextInput',
   component: TextInput,
-} as Meta<typeof TextInput>;
-
-const Template: StoryFn<{ 
-  placeholder: string; 
-  value?: string; 
-  disabled?: boolean; 
-  errorMessage?: string; 
-}> = (args) => <TextInput {...args} />;
-
-// Default TextInput
-export const Default = Template.bind({});
-Default.args = {
-  placeholder: 'Enter text here',
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'TextInput is a simple and reusable input component for text entry.',
+      },
+    },
+  },
 };
 
-// TextInput with a default value
-export const WithValue = Template.bind({});
-WithValue.args = {
-  placeholder: 'Enter text here',
-  value: 'Default Value',
+export default meta;
+
+type Story = StoryObj<TextInputProps>;
+
+// Default state
+export const Default: Story = {
+  args: {
+    placeholder: 'Enter text here',
+  },
 };
 
-// Disabled TextInput
-export const Disabled = Template.bind({});
-Disabled.args = {
-  placeholder: 'Enter text here',
-  disabled: true,
+// With pre-filled value
+export const WithValue: Story = {
+  args: {
+    placeholder: 'Enter text here',
+    value: 'Pre-filled',
+  },
 };
 
-// TextInput with an error message
-export const WithErrorMessage = Template.bind({});
-WithErrorMessage.args = {
-  placeholder: 'Enter text here',
-  errorMessage: 'This field is required.',
+// Disabled input
+export const Disabled: Story = {
+  args: {
+    placeholder: 'Disabled input',
+    disabled: true,
+  },
 };
 
-// TextInput with a custom placeholder
-export const CustomPlaceholder = Template.bind({});
-CustomPlaceholder.args = {
-  placeholder: 'Type your name here',
+// With an error message
+export const WithErrorMessage: Story = {
+  args: {
+    placeholder: 'Enter your name',
+    errorMessage: 'Name is required.',
+  },
+};
+
+// Custom placeholder
+export const CustomPlaceholder: Story = {
+  args: {
+    placeholder: 'Type your email address',
+  },
 };

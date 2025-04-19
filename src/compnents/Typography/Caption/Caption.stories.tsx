@@ -2,10 +2,20 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Caption from './Caption.js';
 
-export default {
+const meta: Meta<typeof Caption> = {
   title: 'Typography/Caption',
   component: Caption,
-} as Meta<typeof Caption>;
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Caption is a component used to provide a short description or title for visual elements such as images, videos, or other media.'
+      },
+    },
+  },
+};
+
+export default meta;
 
 const Template: StoryFn<React.ComponentProps<typeof Caption>> = (args) => <Caption {...args} />;
 

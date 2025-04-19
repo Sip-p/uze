@@ -3,11 +3,20 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Heading from './Heading.js';
 
-export default {
+const meta: Meta<typeof Heading> = {
   title: 'Typography/Heading',
   component: Heading,
-} as Meta<typeof Heading>;
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Heading is a component used to display titles or subtitles for sections of a page, providing structure and clarity for users.'
+      },
+    },
+  },
+};
 
+export default meta;
 const Template: StoryFn<{ level: number; children: React.ReactNode }> = (args) => <Heading {...args} />;
 
 // Default Heading (level 1)

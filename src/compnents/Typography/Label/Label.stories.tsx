@@ -2,10 +2,20 @@ import React from 'react';
 import Label from './Label.js';
 import { Meta, StoryFn } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof Label> = {
   title: 'Typography/Label',
   component: Label,
-} as Meta<typeof Label>;
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Label is a component used to define the title or description for form controls or other interactive UI elements.'
+      },
+    },
+  },
+};
+
+export default meta;
 
 const Template: StoryFn<React.ComponentProps<typeof Label>> = (args) => <Label {...args} />;
 

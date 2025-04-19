@@ -2,10 +2,21 @@ import React from 'react';
 import Modal from './Modal.js';
 import { Meta, StoryFn } from '@storybook/react';
 
-export default {
-  title: 'Feedback/Modal',
+const meta: Meta<typeof Modal> = {
+  title: ' Feedback/Modal',
   component: Modal,
-} as Meta<typeof Modal>;
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Modal is a dialog component used to display content in a layer above the app. It is typically used for confirmations, forms, messages, or focused interactions that require user attention.'
+
+      },
+    },
+  },
+};
+
+export default meta;
 
 const Template: StoryFn<React.ComponentProps<typeof Modal>> = (args) => <Modal {...args} />;
 

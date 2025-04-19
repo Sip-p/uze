@@ -2,50 +2,64 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Paragraph from './Paragraph.js';
 
-export default {
+const meta: Meta<typeof Paragraph> = {
   title: 'Typography/Paragraph',
   component: Paragraph,
-} as Meta<typeof Paragraph>;
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Paragraph is a component used to display text content or long-form descriptions in a readable format.'
+      },
+    },
+  },
+};
 
-const Template: StoryFn<{ children: React.ReactNode; className?: string }> = (args) => <Paragraph {...args} />;
+export default meta;
 
-// Default Paragraph
+const Template: StoryFn<{ children: React.ReactNode; style?: React.CSSProperties }> = (args) => (
+  <Paragraph {...args} />
+);
+
 export const Default = Template.bind({});
 Default.args = {
   children: 'This is a paragraph.',
+  style: {},  // No additional styling
 };
 
-// Large Paragraph
 export const Large = Template.bind({});
 Large.args = {
   children: 'This is a large paragraph.',
-  className: 'text-2xl leading-loose',  // Large font size and loose line height
+  style: {
+    fontSize: '1.25rem',   // 2xl in Tailwind
+    lineHeight: '1.75rem',  // loose in Tailwind
+  },
 };
 
-// Small Paragraph
 export const Small = Template.bind({});
 Small.args = {
   children: 'This is a small paragraph.',
-  className: 'text-sm leading-snug',  // Small font size and tight line height
+  style: {
+    fontSize: '0.875rem',   // sm in Tailwind
+    lineHeight: '1.25rem',  // snug in Tailwind
+  },
 };
 
-// Styled Paragraph (with color)
 export const Styled = Template.bind({});
 Styled.args = {
   children: 'This is a styled paragraph with custom color.',
-  className: 'text-blue-500 font-bold',  // Blue color and bold text
+  style: {
+    color: 'blue',      // text-blue-500 in Tailwind
+    fontWeight: 'bold', // font-bold in Tailwind
+  },
 };
 
-// Paragraph with emphasis
-export const Emphasized = Template.bind({});
-Emphasized.args = {
-  children: 'This is an emphasized paragraph with italic style.',
-  className: 'italic text-lg',  // Italic text and larger font size
-};
-
-// Paragraph with background
 export const Background = Template.bind({});
 Background.args = {
   children: 'This paragraph has a background color.',
-  className: 'bg-gray-100 p-4 rounded-md',  // Gray background, padding, and rounded corners
+  style: {
+    backgroundColor: '#FEE2E2', // bg-red-100 in Tailwind
+    padding: '1rem',            // p-4 in Tailwind
+    borderRadius: '0.375rem',   // rounded-md in Tailwind
+  },
 };
