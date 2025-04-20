@@ -220,7 +220,7 @@ export default tseslint.config({
 ```
 
 
-##![Component Example](./screenshots/example.png)
+📸 Some Screenshots are available inside the Screenshot folder
  
 
 
