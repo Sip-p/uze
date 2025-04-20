@@ -152,10 +152,8 @@ export default tseslint.config({
     ...reactDom.configs.recommended.rules,
   },
 })
-📸 Screenshots
-Here, add screenshots or GIFs showing your components in action. You can use the screenshots/ folder or simply upload images directly to GitHub.
+ 
 
 
-Component	Preview
-Button Component	
-Modal Component
+
+ 
