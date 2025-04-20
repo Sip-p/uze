@@ -75,13 +75,74 @@ A minimal yet powerful React + TypeScript + Vite setup featuring reusable compon
 - 📦 Ready for packaging as a UI library
 
 ---
-
-## 📁 Folder Structure
-
-uze/ ├── .storybook/ # Storybook configuration ├── public/ # Public static files ├── src/ │ ├── components/ # Your reusable UI components │ └── stories/ # Storybook stories for the components ├── tsconfig.json # TypeScript configuration ├── package.json # Project dependencies and scripts └── README.md # Project documentation
-
-
+```UZE/
+├── .storybook/
+│   ├── main.ts
+│   ├── preview.ts
+│   └── tsconfig.json
+├── public/
+|__screenshots/
+├── src/
+│   ├── components/
+│   │   ├── Typography/
+│   │   │   ├── Heading/
+│   │   │   │   ├── Heading.tsx
+│   │   │   │   ├── Heading.stories.tsx
+│   │   │   │   └── Heading.test.tsx
+│   │   │   ├── Paragraph/
+│   │   │   │   ├── Paragraph.tsx
+│   │   │   │   ├── Paragraph.stories.tsx
+│   │   │   │   └── Paragraph.test.tsx
+│   │   │   ├── Label/
+│   │   │   │   ├── Label.tsx
+│   │   │   │   ├── Label.stories.tsx
+│   │   │   │   └── Label.test.tsx
+│   │   │   ├── Caption/
+│   │   │   │   ├── Caption.tsx
+│   │   │   │   ├── Caption.stories.tsx
+│   │   │   │   └── Caption.test.tsx
+│   │   │   └── HelperText/
+│   │   │       ├── HelperText.tsx
+│   │   │       ├── HelperText.stories.tsx
+│   │   │       └── HelperText.test.tsx
+│   │   ├── DataEntry/
+│   │   │   ├── TextInput/
+│   │   │   │   ├── TextInput.tsx
+│   │   │   │   ├── TextInput.stories.tsx
+│   │   │   │   └── TextInput.test.tsx
+│   │   │   ├── Checkbox/
+│   │   │   │   ├── Checkbox.tsx
+│   │   │   │   ├── Checkbox.stories.tsx
+│   │   │   │   └── Checkbox.test.tsx
+│   │   ├── Feedback/
+│   │   │   ├── Toast/
+│   │   │   │   ├── Toast.tsx
+│   │   │   │   ├── Toast.stories.tsx
+│   │   │   │   └── Toast.test.tsx
+│   │   │   ├── Modal/
+│   │   │   │   ├── Modal.tsx
+│   │   │   │   ├── Modal.stories.tsx
+│   │   │   │   └── Modal.test.tsx
+│   ├── theme/
+│   │   ├── tokens.ts
+│   │   ├── light.ts
+│   │   ├── dark.ts
+│   │   └── index.ts
+│   ├── styles/
+│   │   └── index.css
+│   ├── utils/
+│   │   └── classNames.ts
+│   ├── App.tsx
+│   └── index.tsx
+├── tailwind.config.js
+├── .eslintrc.js
+├── .prettierrc
+├── package.json
+├── tsconfig.json
+└── README.md
+```
 ---
+ 
 
 ## 🛠️ Getting Started
 
@@ -93,22 +154,23 @@ To get started, clone the repository and install dependencies:
 git clone https://github.com/Sip-p/uze.git
 cd uze
 npm install
-
+```
 
 Run Storybook Locally
 Once dependencies are installed, you can start Storybook to see your components in action:
-npm run storybook
+```npm run storybook```
 Visit http://localhost:6006 to view Storybook locally.
 
 
 📦 Build for Production
 To build your project and Storybook for production, run:
 
-bash
+```bash
 Copy
 Edit
 npm run build
 npm run build-storybook
+```
 This will create optimized builds for your application and Storybook.
 
 🧪 ESLint Setup (Advanced Type-Checked Rules)
@@ -117,6 +179,7 @@ This template uses @typescript-eslint and optionally allows stricter rules. Upda
 ts
 Copy
 Edit
+```
 export default tseslint.config({
   extends: [
     // Remove ...tseslint.configs.recommended and replace with this
@@ -133,11 +196,13 @@ export default tseslint.config({
     },
   },
 })
+```
 You can also install eslint-plugin-react-x and eslint-plugin-react-dom for React-specific lint rules:
 
 ts
 Copy
 Edit
+```
 import reactX from 'eslint-plugin-react-x'
 import reactDom from 'eslint-plugin-react-dom'
 
@@ -152,6 +217,10 @@ export default tseslint.config({
     ...reactDom.configs.recommended.rules,
   },
 })
+```
+
+
+##![Component Example](./screenshots/example.png)
  
 
 
